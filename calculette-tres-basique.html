@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculette (version très basique)</title>
+</head>
+<body>
+
+    <input id="champ1" type="number"> + <input id="champ2" type="number"> <button id="bouton_egal">=</button> <span id="affichage_resultat"></span>
+
+    <script>
+
+        /* Calculette très simple, permettant d'additionner deux valeurs et d'afficher le résultat */
+
+        function addition() {
+
+            let champ1 = document.querySelector("#champ1");
+            let champ2 = document.querySelector("#champ2");
+
+            // Pour récupérer ce qui a été saisi dans un champ, on peut accéder à sa propriété "value" :
+
+            //let resultat = champ1.value + champ2.value;
+
+            // Attention : dans le cas d'une addition, le "+" peut être compris comme opérateur de concaténation. Il faut "forcer" JavaScript à comprendre que nos deux valeurs sont bien des nombres, et non des chaînes représentant ces nombres :
+
+            let resultat = Number(champ1.value) + Number(champ2.value);
+
+            document.querySelector("#affichage_resultat").innerText = resultat;
+
+            // Vider les deux champs :
+
+            champ1.value = "";
+            champ2.value = "";
+
+        }
+
+        document.querySelector("#bouton_egal").onclick = addition;
+
+        /******** CONSIGNES DU TC (Partie 1) ***********
+
+        - Trouver un moyen de permettre également des soustractions, multiplications et divisions
+
+        > Il s'agirait de mémoriser quelle sera l'opération menée lorsqu'on cliquera sur le bouton "="
+
+        > Si on veut mettre en place un bouton par opération possible, il faut que :
+            - si on n'a pour l'instant donné qu'un seul nombre à manipuler, on doit mémoriser quelle opération finira par être faite
+            - si on a déjà 2 nombres, il faut en plus fonctionner comme un bouton "=" (et mener l'opération qui avait été pré-programmée)
+
+        - Trouver un moyen de n'utiliser qu'un seul champ pour entrer les valeurs.
+            > Cela va impliquer que la calculette ait une "mémoire", on peut s'en sortir avec une seule variable qui évoluera en fonction des opérations menées
+
+        */
+
+    </script>
+    
+</body>
+</html>
